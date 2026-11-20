@@ -8,6 +8,7 @@ import { SpecimenAnatomy } from "@/components/home/specimen-anatomy";
 import { SymposiumSchedule } from "@/components/home/symposium-schedule";
 import { ScrollMarquee } from "@/components/scroll-marquee/scroll-marquee";
 import { ScrollProgressRail } from "@/components/scroll-progress-rail/scroll-progress-rail";
+import { VisitorInfoTickets } from "@/components/visitor-info-tickets/visitor-info-tickets";
 import { Artwork, ArtworkCategory } from "@/lib/artworks-data";
 import { MotionConfig } from "motion/react";
 import { useState } from "react";
@@ -56,6 +57,8 @@ export default function Home() {
           />
 
           <SymposiumSchedule />
+
+          <VisitorInfoTickets />
         </main>
 
         <ArtworkModal

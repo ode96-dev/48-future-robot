@@ -154,20 +154,6 @@ export function HeroPoster({
                 onSelectArtwork(heroArtwork);
               }}
             />
-
-            <motion.button
-              whileHover={{ scale: 1.06 }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-              onClick={(e) => {
-                e.stopPropagation();
-                soundFx.playFocusChime();
-                onSelectArtwork(heroArtwork);
-              }}
-              className="absolute bottom-[18%] left-1/2 -translate-x-1/2 z-20 w-24 h-24 rounded-full bg-stone-900/60 backdrop-blur-md text-stone-100 text-xs font-semibold tracking-wide border border-white/30 shadow-xl hover:bg-stone-900/80 transition-colors flex items-center justify-center text-center leading-tight px-3 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              View Details
-            </motion.button>
           </div>
 
           <div className="w-full flex items-center justify-between z-10 pt-3">

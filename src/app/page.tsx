@@ -5,6 +5,7 @@ import { CollectionGallery } from "@/components/collection-gallery/collection-ga
 import { ExhibitionChapters } from "@/components/home/exhibition-chapters";
 import { HeroPoster } from "@/components/home/hero-poster";
 import { SpecimenAnatomy } from "@/components/home/specimen-anatomy";
+import { SymposiumSchedule } from "@/components/home/symposium-schedule";
 import { ScrollMarquee } from "@/components/scroll-marquee/scroll-marquee";
 import { ScrollProgressRail } from "@/components/scroll-progress-rail/scroll-progress-rail";
 import { Artwork, ArtworkCategory } from "@/lib/artworks-data";
@@ -53,6 +54,8 @@ export default function Home() {
             onCategoryChange={setGalleryCategory}
             onSelectArtwork={handleOpenArtwork}
           />
+
+          <SymposiumSchedule />
         </main>
 
         <ArtworkModal

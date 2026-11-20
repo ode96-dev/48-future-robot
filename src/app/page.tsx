@@ -1,17 +1,21 @@
 "use client";
 
 import { ArtworkModal } from "@/components/artwork-modal/artwork-modal";
+import { CollectionGallery } from "@/components/collection-gallery/collection-gallery";
+import { ExhibitionChapters } from "@/components/home/exhibition-chapters";
 import { HeroPoster } from "@/components/home/hero-poster";
 import { SpecimenAnatomy } from "@/components/home/specimen-anatomy";
 import { ScrollMarquee } from "@/components/scroll-marquee/scroll-marquee";
 import { ScrollProgressRail } from "@/components/scroll-progress-rail/scroll-progress-rail";
-import { Artwork } from "@/lib/artworks-data";
+import { Artwork, ArtworkCategory } from "@/lib/artworks-data";
 import { MotionConfig } from "motion/react";
 import { useState } from "react";
 
 export default function Home() {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [galleryCategory, setGalleryCategory] =
+    useState<string>("All Specimens");
 
   const handleOpenArtwork = (artwork: Artwork) => {
     setSelectedArtwork(artwork);
@@ -20,6 +24,11 @@ export default function Home() {
 
   const handleScrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleFilterByChapter = (category: ArtworkCategory) => {
+    setGalleryCategory(category);
+    handleScrollToSection("collection-gallery");
   };
 
   return (
@@ -36,6 +45,14 @@ export default function Home() {
           <ScrollMarquee />
 
           <SpecimenAnatomy onSelectArtwork={handleOpenArtwork} />
+
+          <ExhibitionChapters onFilterByChapter={handleFilterByChapter} />
+
+          <CollectionGallery
+            selectedCategory={galleryCategory}
+            onCategoryChange={setGalleryCategory}
+            onSelectArtwork={handleOpenArtwork}
+          />
         </main>
 
         <ArtworkModal

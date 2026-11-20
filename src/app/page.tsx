@@ -2,6 +2,8 @@
 
 import { ArtworkModal } from "@/components/artwork-modal/artwork-modal";
 import { HeroPoster } from "@/components/home/hero-poster";
+import { SpecimenAnatomy } from "@/components/home/specimen-anatomy";
+import { ScrollMarquee } from "@/components/scroll-marquee/scroll-marquee";
 import { ScrollProgressRail } from "@/components/scroll-progress-rail/scroll-progress-rail";
 import { Artwork } from "@/lib/artworks-data";
 import { MotionConfig } from "motion/react";
@@ -30,6 +32,10 @@ export default function Home() {
             onSelectArtwork={handleOpenArtwork}
             onExploreClick={() => handleScrollToSection("exhibition-chapters")}
           />
+
+          <ScrollMarquee />
+
+          <SpecimenAnatomy onSelectArtwork={handleOpenArtwork} />
         </main>
 
         <ArtworkModal
